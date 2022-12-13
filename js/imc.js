@@ -22,7 +22,6 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log('Peso invalido')
         pesovalido = false
         infoimc.textContent = 'Peso invalido'
-
         paciente.classList.add("paciente-invalido")
     }
 
@@ -30,20 +29,18 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log('Altura invalida')
         alturavalida = false
         infoimc.textContent = 'Altura invalida'
-
         paciente.classList.add("paciente-invalido");
     }
 
     if (pesovalido && alturavalida) {
-        let imc = peso / (altura * altura)
-        infoimc.textContent = imc.toFixed(2)
+        let imc = CalculaImc(peso,altura)
+        infoimc.textContent = imc
     }
 
 }
 
-let botao = document.querySelector('#adicionar-paciente')
-botao.addEventListener('click', function () {
-    event.preventDefault()
-    console.log('teste')
-})
-
+function CalculaImc(peso,altura){
+    let imc = 0 
+    imc = peso / (altura * altura)
+    return imc.toFixed(2)
+}
