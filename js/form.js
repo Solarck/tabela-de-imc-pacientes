@@ -7,7 +7,9 @@ botao.addEventListener('click', function () {
     let paciente = ObtemPacienteForm(form)
 
     let pacienteTR = MontaTr(paciente)
-    console.log(paciente)
+
+    if(validapaciente(paciente)){
+    }
 
     // Adicionando paciente na tabela
     let tabela = document.querySelector('#tabela-pacientes')
@@ -56,4 +58,13 @@ function montaTd(dado, classe) {
     td.classList.add(classe)
 
     return td
+}
+
+function validapaciente(paciente){
+    if(validapeso(paciente.peso)){
+        return true
+    }
+    else{
+        return false
+    }
 }
